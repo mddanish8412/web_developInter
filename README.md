@@ -46,5 +46,5 @@ Open the project folder in VS Code and run each project locally in your browser.
 
 📧 Contact
 Md Danish
-GitHub Profile
-Email: your_email@example.com
+GitHub https://github.com/mddanish8412/web_developInter
+Email: mddanish10111@gmail.com

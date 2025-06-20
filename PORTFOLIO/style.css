@@ -1,0 +1,255 @@
+/* --- 1. Global Styles & Variables --- */
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --accent-color: #00f5c8;
+    --text-color: #e3e3e3;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: white;
+}
+
+h1 { font-size: 3.5rem; line-height: 1.2; }
+h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; }
+h3 { font-size: 1.5rem; margin-bottom: 10px; }
+p { margin-bottom: 20px; }
+a { color: var(--accent-color); text-decoration: none; }
+
+section {
+    padding: 80px 0;
+}
+
+/* --- 2. Header & Navigation --- */
+header {
+    background-color: var(--secondary-bg);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.hamburger {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* --- 3. Main Content Sections --- */
+
+/* Hero Section */
+#hero {
+    padding-top: 200px; /* Offset for fixed header */
+    text-align: center;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+}
+
+/* About Section */
+#about {
+    
+    background-color: var(--secondary-bg);
+}
+
+#about h2{
+    padding: 30px;
+    margin-top: 20px;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.profile-pic {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3, .project-card p {
+    padding: 0 20px;
+}
+.project-card h3 { padding-top: 20px; }
+.project-card p { padding-bottom: 20px; }
+
+
+/* --- 4. Footer --- */
+footer {
+    background-color: var(--secondary-bg);
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #333;
+}
+
+
+/* --- 5. Responsive Media Queries --- */
+
+/* For Tablets and smaller desktops */
+@media (max-width: 992px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Mobile Navigation */
+    .nav-links {
+        display: none; /* Hide the nav links by default */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Height of the header */
+        left: 0;
+        background-color: var(--secondary-bg);
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the nav links when active */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+}
